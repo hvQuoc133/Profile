@@ -1,0 +1,166 @@
+body {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  font-family: 'Anton', sans-serif;
+  justify-content: center;
+}
+
+/* Css background animation */
+.container-star {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  transform: rotateZ(45deg);
+}
+
+.shooting_star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(-45deg, rgb(250, 250, 251), rgba(0, 0, 255, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px rgb(243, 243, 245));
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.shooting_star:nth-child(1),
+.shooting_star:nth-child(1)::before,
+.shooting_star:nth-child(1)::after {
+  animation-delay: 110s;
+}
+
+:root {
+  --random-x: calc(Math.random());
+  --random-y: calc(Math.random());
+}
+
+.shooting_star::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+  transform: translateX(50%) rotateZ(45deg);
+  border-radius: 100%;
+  animation: shining 3000ms ease-in-out infinite;
+}
+
+.shooting_star::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+  transform: translateX(50%) rotateZ(45deg);
+  border-radius: 100%;
+  animation: shining 3000ms ease-in-out infinite;
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+/* Css content main */
+.avatar-container {
+  position: absolute;
+  z-index: 2;
+  margin-top: 20px;
+}
+
+.avatar-me {
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid #0fff;
+  overflow: hidden;
+  animation: borderEffectAnimation 5s linear infinite;
+  cursor: pointer;
+}
+
+.my-name {
+  margin-top: 20px;
+  text-align: center;
+  color: cyan;
+  font-size: 25px;
+  font-weight: 800;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+}
+
+@keyframes borderEffectAnimation {
+  0% {
+    box-shadow: 0 0 10px 5px #0fff;
+  }
+
+  25% {
+    box-shadow: 0 0 10px 5px #00ff00;
+  }
+
+  50% {
+    box-shadow: 0 0 10px 5px #0fff;
+  }
+
+  75% {
+    box-shadow: 0 0 10px 5px #ffff00;
+  }
+
+  100% {
+    box-shadow: 0 0 10px 5px #0fff;
+  }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  position: relative;
+}
+
+.btn-link button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: cyan;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-link button:hover {
+  box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan,
+    0 0 100px cyan, 0 0 200px cyan;
+  transform: scale(1.1)
+}
+
+footer {
+  bottom: 10px;
+  position: absolute;
+  font-size: 10px;
+  color: #ffff00;
+}
+
+footer a {
+  text-decoration: none;
+  color: cyan;
+}
+
+/* css pet animation */
+.pet-icon {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  transition: transform 1s ease;
+}
